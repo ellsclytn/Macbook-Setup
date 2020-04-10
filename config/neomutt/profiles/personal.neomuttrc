@@ -1,0 +1,15 @@
+source "~/.mail/smtp.password"
+
+set smtp_url="smtp://ellis@ellis.codes@127.0.0.1:1025"
+
+set folder = "~/.mail/mailbox/personal"
+set spoolfile = "~/.mail/mailbox/personal/inbox"
+set postponed = "~/.mail/mailbox/personal/drafts"
+set trash = "+/trash"
+set record = ""
+
+set from = "ellis@ellis.codes"
+set realname = "Ellis Clayton"
+
+mailboxes =inbox
+mailboxes =archive =sent =spam =trash

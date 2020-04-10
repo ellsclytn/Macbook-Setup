@@ -1,0 +1,6 @@
+# set spoolfile="+INBOX"
+# set trash="+Trash"
+# set record="+Sent"
+# set postponed="+Drafts"
+
+# mailboxes =INBOX =Sent =Trash =Drafts =Spam

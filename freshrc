@@ -98,3 +98,8 @@ if [[ $OS == "arch" ]]; then
   # Rofi
   fresh config/Xresources --file --marker=!
 fi
+
+# Neomutt
+fresh config/neomutt/\* --file=~/.config/neomutt/neomuttrc
+fresh config/mailcap --file
+fresh config/mbsyncrc --file

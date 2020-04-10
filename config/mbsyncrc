@@ -1,0 +1,52 @@
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Automatically delete messages on either side if they are found deleted on the other.
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+
+# Protonmail
+IMAPAccount personal
+Host 127.0.0.1
+Port 1143
+User ellis@ellis.codes
+PassCmd "cat ~/.mail/bridge.password"
+SSLType STARTTLS
+SSLVersions TLSv1.2
+CertificateFile ~/.mail/bridge.crt
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+# The trailing "/" is important
+Path ~/.mail/mailbox/personal/
+Inbox ~/.mail/mailbox/personal/inbox
+
+Channel personal-inbox
+Master :personal-remote:
+Slave :personal-local:
+Patterns "INBOX"
+
+Channel personal-archive
+Master :personal-remote:"Archive"
+Slave  :personal-local:"archive"
+
+Channel personal-sent
+Master :personal-remote:"Sent"
+Slave :personal-local:"sent"
+
+Channel personal-spam
+Master :personal-remote:"Spam"
+Slave  :personal-local:"spam"
+
+Channel personal-trash
+Master :personal-remote:"Trash"
+Slave  :personal-local:"trash"
+
+Group personal
+Channel personal-inbox
+Channel personal-archive
+Channel personal-sent
+Channel personal-spam
+Channel personal-trash
