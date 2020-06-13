@@ -64,3 +64,11 @@
   textconv = gpg --quiet --no-tty --decrypt
 [pull]
   ff = only
+[sendemail]
+  smtpserver = 127.0.0.1
+  smtpserverport = 1025
+  smtpuser = ellis@ellis.codes
+  smtpencryption = tls
+  smtpsslcertpath = ~/.mail/bridge.crt
+[credential]
+  helper = store
